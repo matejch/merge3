@@ -17,3 +17,7 @@ Cargo.lock
 # Added by cargo
 
 /target
+/.idea/merge3.iml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/.gitignore
