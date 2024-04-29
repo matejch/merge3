@@ -40,16 +40,18 @@ A game loop that takes input from the player and updates the game state.
 ## Game state
 
 - board: 5x5 array of tiles
-- board state: WaitForInput, MaybeMergeable, EmptyCells, GameOver
+- board state: WaitForInput, InputReceived, MaybeMergeable, EmptyCells, GameOver
 
 ## Game logic
 
-WaitForInput state: (board, input pair)
+WaitForInput state: (board)
   - wait for input, when received:
-    - check if input is valid == board after swap is mergeable:
-      - yes => swap and set state = MaybeMergeable (board)
-      - no => do nothing, wait for the next input
-      
+    - set state = InputReceived(pair)
+
+InputReceived state: (board, pair)
+    -check if input is valid == board after swap is mergeable:
+        - yes => swap and set state = MaybeMergeable (board)
+        - no => do nothing, set state = wait for the next input
 
 MaybeMergeable state: (board)
     - check if board is mergeable:
