@@ -1,7 +1,7 @@
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Position {
     pub x: usize,
-    pub y: usize
+    pub y: usize,
 }
 
 impl Position {
@@ -17,5 +17,22 @@ impl Position {
     pub fn above(&self) -> Position {
         Position::new(self.x, self.y - 1)
     }
+
+    pub fn below(&self) -> Position {
+        Position::new(self.x, self.y + 1)
+    }
+
+    pub fn left(&self) -> Position {
+        Position::new(self.x - 1, self.y)
+    }
+
+    pub fn right(&self) -> Position {
+        Position::new(self.x + 1, self.y)
+    }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct Pair {
+    pub from: Position,
+    pub to: Position,
+}
